@@ -10,25 +10,25 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 function collectEmployees() {
   // TODO: Get user input to create and return an array of employee objects
   document.getElementById('add-employees-btn').addEventListener("click", function() {
-  while(currentPerson = true) {
-
-const person = {};
+  while(currentEmployee = true) {
+/* here I added an event listener that listens for a click. When the add employees button is clicked, a function is run.   */
+const employee = {};
 
   
   const response = prompt("Enter First Name")
   //console.log(response);
-  person.firstName = response;
+  employee.firstName = response;
 
   if (response != '') {
     const response2 = prompt("Enter Last Name");
     //console.log(response2);
-    person.lastName = response2;
+    employee.lastName = response2;
 
     if (response2 != '') {
       let response3 = prompt("Enter Salary");
       
-       response3 = +response3;
-       //console.log(typeof(response3));
+       response3 = Number(response3);
+       console.log(typeof(response3));
 
        if (isNaN(response3)) {
         alert('Not a number')
@@ -36,7 +36,7 @@ const person = {};
        }
 
       //console.log(response3);
-      person.salary = response3;
+      employee.salary = response3;
       
 
     if (response3 != '') {
@@ -44,19 +44,20 @@ const person = {};
       //console.log(response4);
 
       if (response4 == 'yes') {
-        console.log('yes')
-        employeesArray.push(person);
-        console.log(person);
-        console.log(employeesArray)
-        currentPerson = false;
+        //console.log('yes')
+        employees.push(employee);
+        //console.log(employee);
+        console.log(employees)
+        currentEmployee = false;
       }
 
         else {
-          alert("You are all done! Thank You!")
-          employeesArray.push(person);
-          console.log(person);
-          console.log(employeesArray)
-          break 
+          alert("You are all done! Thank You!");
+          employees.push(employee);
+          localStorage.setItem('employee-data', JSON.stringify(employees))
+          //console.log(employee);
+          console.log(employees);
+          
         }
       }
       
@@ -69,18 +70,50 @@ const person = {};
   }
 )
 
-employeesArray = [];
+return employees;
 }
+
+const employees = JSON.parse(localStorage.getItem('employee-data')) || [];
+
+  //console.log('The average employee salary is $55000!');
+
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
-  // TODO: Calculate and display the average salary
+// TODO: Calculate and display the average salary
+let total = 0;
+for (const employee of employeesArray) {
+  console.log(employee.salary);
+  total += employee.salary;
 }
+console.log(total / employeesArray.length);
+}
+
+
+
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
-}
+let totalEmployees = 0
+  for (const employee of employees) {
+    console.log(employee);
+    totalEmployees++;
+    console.log(totalEmployees);
+  }
+  //put for loop
+  let random = (Math.random() * employees.length)
+    console.log(random);
+  
+    if (random < 1) {
+      console.log("Ian wins!")
+    }
+    else {
+      console.log("Sylvia wins!")
+    }
+  }
+
+
 
 /*
   ====================
@@ -127,7 +160,7 @@ const displayEmployees = function(employeesArray) {
 
 const trackEmployeeData = function() {
   const employees = collectEmployees();
-
+  displayAverageSalary(employees);
   console.table(employees);
 
   displayAverageSalary(employees);
