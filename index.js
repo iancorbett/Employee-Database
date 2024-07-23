@@ -15,50 +15,52 @@ function collectEmployees() {
 const employee = {};
 
   
-  const response = prompt("Enter First Name")
+  const firstName = prompt("Enter First Name")
   //console.log(response);
-  employee.firstName = response;
+  employee.firstName = firstName;
 
-  if (response != '') {
-    const response2 = prompt("Enter Last Name");
+  if (firstName != '') {
+    const lastName = prompt("Enter Last Name");
     //console.log(response2);
-    employee.lastName = response2;
+    employee.lastName = lastName;
 
-    if (response2 != '') {
-      let response3 = prompt("Enter Salary");
+    if (lastName != '') {
+      let salary = prompt("Enter Salary");
       
-       response3 = Number(response3);
-       console.log(typeof(response3));
+       salary = Number(salary);
+       console.log(typeof(salary));
 
-       if (isNaN(response3)) {
+       if (isNaN(salary)) {
         alert('Not a number')
         break
        }
 
       //console.log(response3);
-      employee.salary = response3;
+      employee.salary = salary;
       
 
-    if (response3 != '') {
-      const response4 = prompt("Thank you, employee has been added. Would you like to add another employee?")
+    if (salary != '') {
+      const yesOrNo = prompt("Thank you, employee has been added. Would you like to add another employee?")
       //console.log(response4);
 
-      if (response4 == 'yes') {
+      if (yesOrNo === 'yes') {
         //console.log('yes')
         employees.push(employee);
         //console.log(employee);
-        console.log(employees)
+        localStorage.setItem('employee-data', JSON.stringify(employees));
+        console.log(employees);
         currentEmployee = false;
       }
 
         else {
           alert("You are all done! Thank You!");
           employees.push(employee);
-          localStorage.setItem('employee-data', JSON.stringify(employees))
+          localStorage.setItem('employee-data', JSON.stringify(employees));
           //console.log(employee);
           console.log(employees);
-          
+          break
         }
+        
       }
       
       
