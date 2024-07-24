@@ -16,7 +16,6 @@ The website is quite simple. There is an add employee button, that when it is cl
 CREDITS: 
 Although I did not directly copy and paste any code from another source, I did receive quite a bit of help from a tutor named Dennis Itau. The section that he helped me on was the local storage section specifically he helped me with 78 line 98 and also line 120. Before hand, I did not have the return employees typed it line 120 and it was causing all sorts of errors in my code. He noticed this issue and told me that I needed to return the employees and alleviated some of the errors additionally, he helped me online 124 essentially he helped me store all of my employee objects into the local storage and then take them out of the local storage and get them printed onto the chart. Additionally I did get some help from my teacher named Luigi. He helped me on the section where we have to display the average salary the employees during office hours. I was trying to purely use arithmetic to solve the average salary, but Luigi gave me the idea of using a for loop to iterate through all of the employees and their salaries. He gave me the idea to set a total equal to zero, and then add the employee salaries onto this total and then divide by the length of the employees array. Although the exact code that he worked on with me, ultimately got changed after working with Dennis, I still got the idea for using the loop from Luigi so I thought it was worth mentioning that he had helped me on this section.
 
-Link to deployed project: [
-](https://iancorbett.github.io/Employee-Database/)
+Link to deployed project: https://iancorbett.github.io/Employee-Database/
 
 Thank you very much for reading!
